@@ -4,7 +4,11 @@ function Header() {
   return (
     <header className="header">
       <Link to="/" className="logo">
-        Carnordic
+        <img
+          src="/images/CarnordicLogoVitResize.png"
+          alt="Carnordic Technology"
+          className="logo-image"
+        />
       </Link>
 
       <nav className="nav">

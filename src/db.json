@@ -6,9 +6,8 @@
       "model": "Volvo S60 -01",
       "category": "Instruktionsbok",
       "price": 220,
-      "image": "C:\\Users\\larre\\OneDrive\\Skrivbord\\GRA- Emil Larsson - SYSM9\\carnordic-frontend\\src\\assets\\images\\Instruktionsbok volvo s60 -01.jpg",
-      "description": "Original instruktionsbok till Volvo S60 årsmodell 2001. Produkten är begagnad och i gott skick.",
-
+      "image": "/images/instruktionsbok-volvo-s60-01.jpg",
+      "description": "Instruktionsbok från en Volvo S60 årsmodell 2001.",
       "compatibleCars": ["Volvo S60"]
     },
     {
@@ -17,14 +16,9 @@
       "model": "Volvo S80 -05",
       "category": "ABS",
       "price": 1680,
-      "image": "/images/abs-styrenhet.jpg",
-      "description": "Begagnad ABS-styrenhet till Volvo S80. Produkten är funktionstestad innan försäljning.",
-      "stock": 1,
-      "condition": "Begagnad",
-      "isOriginal": true,
-      "warranty": "1 år",
-      "compatibleCars": ["Volvo S80"],
-      "year": "2005"
+      "image": "/images/abs-styrenhet-volvo-s80-05.jpg",
+      "description": "Abs styrenhet från en Volvo S80 2,4 140hk -05 (14105mil) Enheten fungerar utmärkt, demonterad från krockskadat fordon",
+      "compatibleCars": ["Volvo S80"]
     },
     {
       "id": 3,
@@ -32,14 +26,9 @@
       "model": "Volvo S70, V70",
       "category": "Mätarhus",
       "price": 980,
-      "image": "/images/matarhus-v70.jpg",
-      "description": "Begagnat mätarhus till Volvo S70 och V70. Kontrollerat innan försäljning.",
-      "stock": 1,
-      "condition": "Begagnad",
-      "isOriginal": true,
-      "warranty": "1 år",
-      "compatibleCars": ["Volvo S70", "Volvo V70"],
-      "year": "1997-2000"
+      "image": "/images/kombiinstrument-matarhus-volvo-s70-v70.jpg",
+      "description": "Mätarhus från en S70 -00, Mätarställning endast 15040mil",
+      "compatibleCars": ["Volvo S70", "Volvo V70"]
     },
     {
       "id": 4,
@@ -47,29 +36,19 @@
       "model": "Volvo 760 -88",
       "category": "Instruktionsbok",
       "price": 220,
-      "image": "/images/instruktionsbok-760.jpg",
-      "description": "Original instruktionsbok till Volvo 760 årsmodell 1988.",
-      "stock": 1,
-      "condition": "Begagnad",
-      "isOriginal": true,
-      "warranty": "1 år",
-      "compatibleCars": ["Volvo 760"],
-      "year": "1988"
+      "image": "/images/instruktionsbok-volvo-760-88.jpg",
+      "description": "Instruktionsbok från en Volvo 760 årsmodell 1988.",
+      "compatibleCars": ["Volvo 760"]
     },
     {
       "id": 5,
       "name": "Fönsterhissmotor",
       "model": "Volvo V50, S60",
-      "category": "Fönsterhissmotor",
+      "category": "Fönsterhiss",
       "price": 340,
-      "image": "/images/fonsterhissmotor.jpg",
-      "description": "Begagnad fönsterhissmotor. Funktionstestad innan försäljning.",
-      "stock": 1,
-      "condition": "Begagnad",
-      "isOriginal": true,
-      "warranty": "1 år",
-      "compatibleCars": ["Volvo V50", "Volvo S60"],
-      "year": "2004-2012"
+      "image": "/images/fonsterhissmotor-hogerfram-volvo-v50-s60.jpg",
+      "description": "Fönsterhissmotor från en Volvo S40 -06 (8125mil), passar S40 V50 årsmodell 2004-2006",
+      "compatibleCars": ["Volvo V50", "Volvo S60"]
     },
     {
       "id": 6,
@@ -77,14 +56,69 @@
       "model": "Volvo V50, S40, C30, C70",
       "category": "Mätarhus",
       "price": 1380,
-      "image": "/images/matarhus-r-design.jpg",
-      "description": "Mätarhus R-design till Volvo V50, S40, C30 och C70. Begagnad originaldel.",
-      "stock": 1,
-      "condition": "Begagnad",
-      "isOriginal": true,
-      "warranty": "1 år",
-      "compatibleCars": ["Volvo V50", "Volvo S40", "Volvo C30", "Volvo C70"],
-      "year": "2004-2013"
+      "image": "/images/Matarhus-Rdesign-Volvo-v50-s40-c30-c70.jpg",
+      "description": "Mätarhus R design från en Volvo V50 D5 -09 (ca 29000mil), passar även andra modeller som S40 C30 och C70",
+      "compatibleCars": ["Volvo V50", "Volvo S40", "Volvo C30", "Volvo C70"]
+    },
+    {
+      "id": 7,
+      "name": "Fönsterhissmotor",
+      "model": "Volvo V50, S60",
+      "category": "Fönsterhiss",
+      "price": 340,
+      "image": "/images/fonsterhissmotor-vansterbak-volvo-v50-s60.jpg",
+      "description": "Fönsterhissmotor från en Volvo S40 -06 (8125mil), passar S40 V50 årsmodell 2004-2006",
+      "compatibleCars": ["Volvo V50", "Volvo S60"]
+    },
+    {
+      "id": 8,
+      "name": "Instruktionsbok",
+      "model": "Volvo S60 -06",
+      "category": "Instruktionsbok",
+      "price": 220,
+      "image": "/images/instruktionsbok-volvo-s60-06.jpg",
+      "description": "Instruktionsbok från en Volvo S60 årsmodell 2006.",
+      "compatibleCars": ["Volvo S60"]
+    },
+    {
+      "id": 9,
+      "name": "Fönsterhissmotor",
+      "model": "Volvo V70, XC70, V60, S60",
+      "category": "Fönsterhiss",
+      "price": 340,
+      "image": "/images/fonsterhissmotor-volvo-v70-xc70-v60-s60.jpg",
+      "description": "Fönsterhissmotor från Volvo V70, XC70, V60 och S60.",
+      "compatibleCars": ["Volvo V70", "Volvo XC70", "Volvo V60", "Volvo S60"]
+    },
+    {
+      "id": 10,
+      "name": "ABS styrenhet",
+      "model": "Volvo V70 -02",
+      "category": "ABS",
+      "price": 1280,
+      "image": "/images/abs-styrenhet-volvo-v70-02.jpg",
+      "description": "Abs styrenhet från en Volvo V70 2,4 140hk -02 (14830mil), passar endast bil med stc antispinn (ej dstc)",
+      "compatibleCars": ["Volvo V70"]
+    },
+    {
+      "id": 11,
+      "name": "Mätarhus",
+      "model": "Volvo V50, S40",
+      "category": "Mätarhus",
+      "price": 890,
+      "image": "/images/kombiinstrument-matarhus-volvo-v50-s40.jpg",
+      "description": "Mätarhus för Volvo V50 och S40 årsmodell 2007 (ca 21000mil)",
+      "compatibleCars": ["Volvo V50", "Volvo S40"]
+    },
+    {
+      "id": 12,
+      "name": "Instruktionsbok",
+      "model": "Volvo V70 -08",
+      "category": "Instruktionsbok",
+      "price": 220,
+      "image": "/images/instruktionsbok-volvo-v70-08.jpg",
+      "description": "Instruktionsbok från en Volvo V70II årsmodell 2008.",
+      "compatibleCars": ["Volvo V70"]
     }
   ],
   "orders": [],

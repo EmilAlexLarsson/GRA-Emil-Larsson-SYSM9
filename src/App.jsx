@@ -3,6 +3,17 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import "./App.css";
 
+import HomePage from "./pages/HomePage";
+import ProductsPage from "./pages/ProductsPage";
+import ProductDetail from "./pages/ProductDetail";
+import CartPage from "./pages/CartPage";
+import CheckoutPage from "./pages/CheckoutPage";
+import ConfirmationPage from "./pages/ConfirmationPage";
+import LoginPage from "./pages/LoginPage";
+import RegisterPage from "./pages/RegisterPage";
+import FavoritesPage from "./pages/FavoritesPage";
+import NotFoundPage from "./pages/NotFoundPage";
+
 function App() {
   return (
     <Router>

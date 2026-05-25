@@ -1,0 +1,101 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Instruktionsbok",
+      "model": "Volvo S60 -01",
+      "category": "Instruktionsbok",
+      "price": 220,
+      "image": "/images/instruktionsbok-s60.jpg",
+      "description": "Original instruktionsbok till Volvo S60 årsmodell 2001. Produkten är begagnad och i gott skick.",
+
+      "compatibleCars": ["Volvo S60"]
+    },
+    {
+      "id": 2,
+      "name": "ABS styrenhet",
+      "model": "Volvo S80 -05",
+      "category": "ABS",
+      "price": 1680,
+      "image": "/images/abs-styrenhet.jpg",
+      "description": "Begagnad ABS-styrenhet till Volvo S80. Produkten är funktionstestad innan försäljning.",
+      "stock": 1,
+      "condition": "Begagnad",
+      "isOriginal": true,
+      "warranty": "1 år",
+      "compatibleCars": ["Volvo S80"],
+      "year": "2005"
+    },
+    {
+      "id": 3,
+      "name": "Mätarhus",
+      "model": "Volvo S70, V70",
+      "category": "Mätarhus",
+      "price": 980,
+      "image": "/images/matarhus-v70.jpg",
+      "description": "Begagnat mätarhus till Volvo S70 och V70. Kontrollerat innan försäljning.",
+      "stock": 1,
+      "condition": "Begagnad",
+      "isOriginal": true,
+      "warranty": "1 år",
+      "compatibleCars": ["Volvo S70", "Volvo V70"],
+      "year": "1997-2000"
+    },
+    {
+      "id": 4,
+      "name": "Instruktionsbok",
+      "model": "Volvo 760 -88",
+      "category": "Instruktionsbok",
+      "price": 220,
+      "image": "/images/instruktionsbok-760.jpg",
+      "description": "Original instruktionsbok till Volvo 760 årsmodell 1988.",
+      "stock": 1,
+      "condition": "Begagnad",
+      "isOriginal": true,
+      "warranty": "1 år",
+      "compatibleCars": ["Volvo 760"],
+      "year": "1988"
+    },
+    {
+      "id": 5,
+      "name": "Fönsterhissmotor",
+      "model": "Volvo V50, S60",
+      "category": "Fönsterhissmotor",
+      "price": 340,
+      "image": "/images/fonsterhissmotor.jpg",
+      "description": "Begagnad fönsterhissmotor. Funktionstestad innan försäljning.",
+      "stock": 1,
+      "condition": "Begagnad",
+      "isOriginal": true,
+      "warranty": "1 år",
+      "compatibleCars": ["Volvo V50", "Volvo S60"],
+      "year": "2004-2012"
+    },
+    {
+      "id": 6,
+      "name": "Mätarhus R-design",
+      "model": "Volvo V50, S40, C30, C70",
+      "category": "Mätarhus",
+      "price": 1380,
+      "image": "/images/matarhus-r-design.jpg",
+      "description": "Mätarhus R-design till Volvo V50, S40, C30 och C70. Begagnad originaldel.",
+      "stock": 1,
+      "condition": "Begagnad",
+      "isOriginal": true,
+      "warranty": "1 år",
+      "compatibleCars": ["Volvo V50", "Volvo S40", "Volvo C30", "Volvo C70"],
+      "year": "2004-2013"
+    }
+  ],
+  "orders": [],
+  "users": [
+    {
+      "id": 1,
+      "username": "user",
+      "password": "password",
+      "name": "Test User",
+      "email": "user@carnordic.se"
+    }
+  ],
+  "favorites": []
+}

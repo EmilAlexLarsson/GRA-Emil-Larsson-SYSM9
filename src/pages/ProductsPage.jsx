@@ -26,10 +26,10 @@ function ProductsPage() {
   }
 
   const filteredProducts = products.filter((product) => {
+    const searchLower = search.toLowerCase().trim();
+
     const matchesCategory =
       selectedCategory === "Alla" || product.category === selectedCategory;
-
-    const searchLower = search.toLowerCase();
 
     const matchesSearch =
       product.name.toLowerCase().includes(searchLower) ||

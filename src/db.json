@@ -6,7 +6,7 @@
       "model": "Volvo S60 -01",
       "category": "Instruktionsbok",
       "price": 220,
-      "image": "/images/instruktionsbok-s60.jpg",
+      "image": "C:\\Users\\larre\\OneDrive\\Skrivbord\\GRA- Emil Larsson - SYSM9\\carnordic-frontend\\src\\assets\\images\\Instruktionsbok volvo s60 -01.jpg",
       "description": "Original instruktionsbok till Volvo S60 årsmodell 2001. Produkten är begagnad och i gott skick.",
 
       "compatibleCars": ["Volvo S60"]

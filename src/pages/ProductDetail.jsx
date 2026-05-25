@@ -21,7 +21,12 @@ function ProductDetail() {
     <section className="product-detail-page">
       <div className="product-detail-container">
         <Link to="/products" className="product-detail-back">
-          ← Tillbaka till alla produkter
+          <img
+            src="/icons/arrow-down-solid-full.svg"
+            alt="Tillbaka"
+            className="product-detail-back-icon"
+          />
+          Tillbaka till alla produkter
         </Link>
 
         <div className="product-detail-card">
@@ -49,7 +54,11 @@ function ProductDetail() {
               </button>
 
               <button className="detail-btn detail-btn-secondary">
-                Spara som favorit
+                Spara som favorit{" "}
+                <img
+                  src="/icons/star-regular-full.svg"
+                  className="product-detail-favorite-icon"
+                />
               </button>
             </div>
           </div>

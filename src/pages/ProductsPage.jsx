@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import useFetch from "../hooks/useFetch";
-import ProductCard from "../components/ProductCard";
+import ProductCard from "../components/products/ProductCard";
 
 function ProductsPage() {
   const {

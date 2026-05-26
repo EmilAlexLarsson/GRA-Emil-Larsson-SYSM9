@@ -1,16 +1,35 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import useFetch from "../hooks/useFetch";
+import api from "../api";
 import ProductCard from "../components/products/ProductCard";
 
 function ProductsPage() {
-  const {
-    data: products,
-    loading,
-    error,
-  } = useFetch("http://localhost:3001/products");
+  // const {
+  //   data: products,
+  //   loading,
+  //   error,
+  // } = useFetch("http://localhost:3001/products");
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
   const [search, setSearch] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("Alla");
+
+  useEffect(() => {
+    async function loadProducts() {
+      try {
+        const data = await api.getProducts();
+        setProducts(data);
+      } catch (error) {
+        setError("Något gick fel när produkterna hämtades.");
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    loadProducts();
+  }, []);
 
   const categories = [
     "Alla",

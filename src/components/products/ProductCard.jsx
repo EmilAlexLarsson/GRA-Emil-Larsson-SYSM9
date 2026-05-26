@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
+import { useCart } from "../../contexts/CartContext";
 
 function ProductCard({ product }) {
+  const { addToCart } = useCart();
+
   return (
     <article className="product-card">
       <Link to={`/products/${product.id}`}>
@@ -15,7 +18,12 @@ function ProductCard({ product }) {
         <strong className="product-card__price">{product.price} kr</strong>
 
         <div className="product-card__btns">
-          <button className="btn btn-primary">Lägg i varukorg</button>
+          <button
+            className="btn btn-primary"
+            onClick={() => addToCart(product)}
+          >
+            Lägg i varukorg
+          </button>
           <button className="btn btn-icon" aria-label="Lägg till favorit">
             <img src="/icons/star-regular-full.svg" alt="Lägg till favorit" />
           </button>

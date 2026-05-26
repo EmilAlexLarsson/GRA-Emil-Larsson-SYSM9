@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
+import { useCart } from "../../contexts/CartContext";
 
 function Header() {
+  const { cartCount } = useCart();
+
   return (
     <header className="header">
       <Link to="/" className="logo">
@@ -15,7 +18,7 @@ function Header() {
         <Link to="/products">Produkter</Link>
         <Link to="/favorites">Favoriter</Link>
         <Link to="/login">Logga in</Link>
-        <Link to="/cart">Varukorg</Link>
+        <Link to="/cart">Varukorg {cartCount > 0 && `(${cartCount})`}</Link>
       </nav>
     </header>
   );

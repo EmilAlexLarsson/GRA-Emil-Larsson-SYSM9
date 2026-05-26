@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import useFetch from "../hooks/useFetch";
 import api from "../api";
+import { useCart } from "../contexts/CartContext";
 
 function ProductDetail() {
   const { productId } = useParams();
+  const { addToCart } = useCart();
 
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -66,7 +67,10 @@ function ProductDetail() {
             </div>
 
             <div className="product-detail-actions">
-              <button className="detail-btn detail-btn-primary">
+              <button
+                className="detail-btn detail-btn-primary"
+                onClick={() => addToCart(product)}
+              >
                 Lägg i varukorg
               </button>
 

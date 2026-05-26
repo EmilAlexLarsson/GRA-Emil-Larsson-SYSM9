@@ -1,13 +1,28 @@
+import { useState, useEffect } from "react";
+import api from "../api";
 import { Link } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
 import ProductCard from "../components/products/ProductCard";
 
 function HomePage() {
-  const {
-    data: products,
-    loading,
-    error,
-  } = useFetch("http://localhost:3001/products");
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    async function loadProducts() {
+      try {
+        const data = await api.getProducts();
+        setProducts(data);
+      } catch (error) {
+        setError("Kunde inte hämta produkter.");
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    loadProducts();
+  }, []);
 
   const popularProducts = products ? products.slice(0, 4) : [];
 

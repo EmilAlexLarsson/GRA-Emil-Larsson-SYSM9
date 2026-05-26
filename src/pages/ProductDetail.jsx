@@ -1,13 +1,30 @@
+import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
+import api from "../api";
 
 function ProductDetail() {
   const { productId } = useParams();
-  const {
-    data: product,
-    loading,
-    error,
-  } = useFetch(`http://localhost:3001/products/${productId}`);
+
+  const [product, setProduct] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    async function loadProduct() {
+      try {
+        const data = await api.getProductById(productId);
+        setProduct(data);
+      } catch (error) {
+        setError("Något gick fel när produkten hämtades.");
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    loadProduct();
+  }, [productId]);
+
   if (loading) {
     return <p>Laddar produkt...</p>;
   }

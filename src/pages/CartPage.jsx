@@ -19,6 +19,7 @@ function CartPage() {
         {cartItems.length === 0 ? (
           <div className="cart-empty">
             <p>Din varukorg är tom.</p>
+
             <Link to="/products" className="cart-empty__button">
               Gå till produkter
             </Link>
@@ -31,7 +32,19 @@ function CartPage() {
               ))}
             </div>
 
-            <OrderSummary />
+            <aside className="order-summary">
+              <OrderSummary />
+
+              <div className="order-summary__buttons">
+                <Link to="/checkout" className="order-summary__checkout">
+                  Gå till kassan
+                </Link>
+
+                <Link to="/products" className="order-summary__continue">
+                  Fortsätt handla
+                </Link>
+              </div>
+            </aside>
           </div>
         )}
       </div>

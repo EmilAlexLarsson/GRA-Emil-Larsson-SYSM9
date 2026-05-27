@@ -12,8 +12,8 @@ function CartPage() {
         <h1>Varukorgen</h1>
 
         <Link to="/products" className="cart-page__back-link">
-          <img src="arrow-down-solid-full.svg" alt="Arrow down" /> Fortsätt
-          handla
+          <img src="/icons/arrow-down-solid-full.svg" alt="Arrow down" />
+          Fortsätt handla
         </Link>
 
         {cartItems.length === 0 ? (

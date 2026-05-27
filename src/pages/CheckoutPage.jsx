@@ -98,13 +98,11 @@ function CheckoutPage() {
     try {
       const savedOrder = await api.createOrder(order);
 
+      localStorage.setItem("latestOrder", JSON.stringify(savedOrder));
+
       clearCart();
 
-      navigate("/confirmation", {
-        state: {
-          order: savedOrder,
-        },
-      });
+      navigate("/confirmation");
     } catch (error) {
       setError("Något gick fel när ordern skapades.");
     }
@@ -116,7 +114,8 @@ function CheckoutPage() {
         <h1>Betalning</h1>
 
         <Link to="/cart" className="checkout-back-link">
-          ← Tillbaka till varukorgen
+          <img src="/icons/arrow-down-solid-full.svg" alt="Tillbaka" />
+          Tillbaka till varukorgen
         </Link>
 
         <form className="checkout-layout" onSubmit={handleSubmit}>
@@ -179,7 +178,11 @@ function CheckoutPage() {
           </div>
 
           <aside className="checkout-summary">
-            <OrderSummary />
+            <OrderSummary
+              subtotal={totalPrice}
+              shipping={shipping}
+              total={total}
+            />
           </aside>
         </form>
       </div>

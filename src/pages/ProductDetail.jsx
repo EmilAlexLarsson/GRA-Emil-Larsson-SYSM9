@@ -2,11 +2,12 @@ import { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import api from "../api";
 import { useCart } from "../contexts/CartContext";
+import { useFavorites } from "../contexts/FavoritesContext";
 
 function ProductDetail() {
   const { productId } = useParams();
   const { addToCart } = useCart();
-
+  const { toggleFavorite, isFavorite } = useFavorites();
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -35,6 +36,8 @@ function ProductDetail() {
   if (!product) {
     return <p>Produkten hittades inte.</p>;
   }
+
+  const favorite = isFavorite(product.id);
   return (
     <section className="product-detail-page">
       <div className="product-detail-container">
@@ -74,11 +77,19 @@ function ProductDetail() {
                 Lägg i varukorg
               </button>
 
-              <button className="detail-btn detail-btn-secondary">
-                Spara som favorit{" "}
+              <button
+                className="detail-btn detail-btn-secondary"
+                onClick={() => toggleFavorite(product)}
+              >
+                {favorite ? "Ta bort från favoriter" : "Spara som favorit"}
                 <img
-                  src="/icons/star-regular-full.svg"
+                  src={
+                    favorite
+                      ? "/icons/star-solid-full.svg"
+                      : "/icons/star-regular-full.svg"
+                  }
                   className="product-detail-favorite-icon"
+                  alt={favorite ? "Favorit" : "Inte favorit"}
                 />
               </button>
             </div>

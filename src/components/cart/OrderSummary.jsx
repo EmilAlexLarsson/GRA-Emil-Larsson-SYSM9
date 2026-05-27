@@ -1,30 +1,31 @@
 import { useCart } from "../../contexts/CartContext";
 
-function OrderSummary() {
-  const { totalPrice } = useCart();
+function OrderSummary({ subtotal, shipping = 0, total }) {
+  const cart = useCart();
 
-  const shipping = 0;
-  const total = totalPrice + shipping;
+  const summarySubtotal = subtotal ?? cart.totalPrice;
+  const summaryShipping = shipping;
+  const summaryTotal = total ?? summarySubtotal + summaryShipping;
 
   return (
-    <aside className="order-summary__box">
+    <div className="order-summary__box">
       <h2>Ordersammanfattning</h2>
 
       <div className="order-summary__row">
         <span>Deltotal</span>
-        <span>{totalPrice} kr</span>
+        <span>{summarySubtotal} kr</span>
       </div>
 
       <div className="order-summary__row">
         <span>Frakt</span>
-        <span>{shipping} kr</span>
+        <span>{summaryShipping} kr</span>
       </div>
 
       <div className="order-summary__row order-summary__row--total">
         <strong>Totalsumma</strong>
-        <strong>{total} kr</strong>
+        <strong>{summaryTotal} kr</strong>
       </div>
-    </aside>
+    </div>
   );
 }
 

@@ -15,10 +15,19 @@ function Header() {
       </Link>
 
       <nav className="nav">
-        <Link to="/products">Produkter</Link>
-        <Link to="/favorites">Favoriter</Link>
-        <Link to="/login">Logga in</Link>
-        <Link to="/cart">Varukorg {cartCount > 0 && `(${cartCount})`}</Link>
+        <Link to="/products">
+          <img src="/icons/car-solid-full.svg" alt="Produkter" /> Produkter
+        </Link>
+        <Link to="/favorites">
+          <img src="/icons/star-solid-full.svg" alt="Favoriter" /> Favoriter
+        </Link>
+        <Link to="/login">
+          <img src="/icons/user-solid-full.svg" alt="Logga in" /> Logga in
+        </Link>
+        <Link to="/cart">
+          <img src="/icons/cart-shopping-solid-full.svg" alt="Varukorg" />
+          Varukorg {cartCount > 0 && `(${cartCount})`}
+        </Link>
       </nav>
     </header>
   );

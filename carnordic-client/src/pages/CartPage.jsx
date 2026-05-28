@@ -12,7 +12,11 @@ function CartPage() {
         <h1>Varukorgen</h1>
 
         <Link to="/products" className="cart-page__back-link">
-          <img src="/icons/arrow-down-solid-full.svg" alt="Arrow down" />
+          <img
+            src="/icons/arrow-down-solid-full.svg"
+            alt=""
+            className="back-link-icon"
+          />
           Fortsätt handla
         </Link>
 

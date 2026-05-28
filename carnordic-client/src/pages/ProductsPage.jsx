@@ -80,7 +80,15 @@ function ProductsPage() {
                   ? "category-button active"
                   : "category-button"
               }
-              onClick={() => setSelectedCategory(category)}
+              onClick={() => {
+                if (category === "Alla") {
+                  setSelectedCategory("Alla");
+                } else if (selectedCategory === category) {
+                  setSelectedCategory("Alla");
+                } else {
+                  setSelectedCategory(category);
+                }
+              }}
             >
               {category}
             </button>

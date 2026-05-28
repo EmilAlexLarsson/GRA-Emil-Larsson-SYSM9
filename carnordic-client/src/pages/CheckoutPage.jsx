@@ -114,7 +114,11 @@ function CheckoutPage() {
         <h1>Betalning</h1>
 
         <Link to="/cart" className="checkout-back-link">
-          <img src="/icons/arrow-down-solid-full.svg" alt="Tillbaka" />
+          <img
+            src="/icons/arrow-down-solid-full.svg"
+            alt=""
+            className="back-link-icon"
+          />
           Tillbaka till varukorgen
         </Link>
 

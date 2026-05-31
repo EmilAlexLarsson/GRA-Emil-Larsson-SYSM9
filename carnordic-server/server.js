@@ -8,9 +8,11 @@ connectDB();
 
 const app = express();
 
+app.use(express.json()); //middleware
+
 app.use("/api/products", productRoutes);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`Servern är igång!!`);
+  console.log(`Servern är igång!! Port: ${PORT}`);
 });

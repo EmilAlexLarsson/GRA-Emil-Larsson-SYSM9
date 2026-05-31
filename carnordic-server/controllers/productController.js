@@ -3,7 +3,7 @@ const Product = require("../models/productModel");
 
 // @desc Get all products
 // @route GET /api/products
-// @access Public
+// @access public
 const getProducts = asyncHandler(async (req, res) => {
   const products = await Product.find({});
   res.json(products);
@@ -11,7 +11,7 @@ const getProducts = asyncHandler(async (req, res) => {
 
 // @desc Get single product
 // @route GET /api/products/:id
-// @access Public
+// @access public
 const getProduct = asyncHandler(async (req, res) => {
   const product = await Product.findById(req.params.id);
   if (!product) {

@@ -4,7 +4,7 @@ const Order = require("../models/orderModel");
 
 // @desc Create new order
 // @route POST /api/orders
-// @access Public
+// @access public
 const createOrder = asyncHandler(async (req, res) => {
   const { customer, paymentMethod, items, subtotal, shipping, totalPrice } =
     req.body;
@@ -38,7 +38,7 @@ const createOrder = asyncHandler(async (req, res) => {
 
 // @desc Get single order
 // @route GET /api/orders/:id
-// @access Public
+// @access public
 const getOrder = asyncHandler(async (req, res) => {
   const { id } = req.params;
 

@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const userSchema = mongoose.Schema(
   {
-    name: {
+    username: {
       type: String,
       required: [true, "Lägg till ett namn"],
     },
@@ -15,6 +15,12 @@ const userSchema = mongoose.Schema(
       type: String,
       required: [true, "Lägg till ett lösenord"],
     },
+    favorites: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Product",
+      },
+    ],
   },
   {
     timestamps: true,

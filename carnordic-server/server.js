@@ -2,6 +2,7 @@ const express = require("express");
 const dotenv = require("dotenv").config();
 const productRoutes = require("./routes/productRoutes");
 const orderRoutes = require("./routes/orderRoutes");
+const userRoutes = require("./routes/userRoutes");
 const { connect } = require("mongoose");
 const connectDB = require("./config/dbConnection");
 
@@ -13,6 +14,7 @@ app.use(express.json()); //middleware
 
 app.use("/api/products", productRoutes);
 app.use("/api/orders", orderRoutes);
+app.use("/api/users", userRoutes);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

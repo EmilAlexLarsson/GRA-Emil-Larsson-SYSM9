@@ -1,6 +1,10 @@
 const express = require("express");
 const dotenv = require("dotenv").config();
 const productRoutes = require("./routes/productRoutes");
+const { connect } = require("mongoose");
+const connectDB = require("./config/dbConnection");
+
+connectDB();
 
 const app = express();
 

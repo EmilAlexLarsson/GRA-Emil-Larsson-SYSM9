@@ -28,16 +28,16 @@ const registerUser = asyncHandler(async (req, res) => {
     email,
     password: hashedPassword,
   });
-  if (user) {
-    res
-      .status(201)
-      .json({ _id: user.id, username: user.username, email: user.email });
-  } else {
+  if (!user) {
     res.status(400);
     throw new Error("Ogiltig användardata");
   }
 
-  res.status(201).json(user);
+  res.status(201).json({
+    _id: user._id,
+    username: user.username,
+    email: user.email,
+  });
 });
 
 // @desc Login user

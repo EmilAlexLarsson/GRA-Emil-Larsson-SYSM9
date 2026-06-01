@@ -5,29 +5,19 @@ const AuthContext = createContext(null);
 
 export function AuthProvider({ children }) {
   const [authed, setAuthed] = useState(isAuthenticated());
-  const [user, setUser] = useState(null);
 
-  function login(token, userData) {
+  function login(token) {
     saveToken(token);
     setAuthed(true);
-    setUser(userData);
   }
 
   function logoutUser() {
     api.logout();
     setAuthed(false);
-    setUser(null);
   }
 
   return (
-    <AuthContext.Provider
-      value={{
-        authed,
-        user,
-        login,
-        logoutUser,
-      }}
-    >
+    <AuthContext.Provider value={{ authed, login, logoutUser }}>
       {children}
     </AuthContext.Provider>
   );

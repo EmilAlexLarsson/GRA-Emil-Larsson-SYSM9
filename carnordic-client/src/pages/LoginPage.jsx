@@ -50,6 +50,14 @@ function LoginPage() {
   return (
     <section className="auth-page">
       <div className="auth-card">
+        <img
+          src="/images/LogoCropped.png"
+          alt="Carnordic Technology"
+          className="auth-logo"
+        />
+
+        <h1>Logga in</h1>
+
         <LoginForm
           form={form}
           error={error}

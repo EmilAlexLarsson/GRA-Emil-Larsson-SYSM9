@@ -1,14 +1,6 @@
 function LoginForm({ form, error, onChange, onSubmit }) {
   return (
     <form onSubmit={onSubmit}>
-      <img
-        src="/images/LogoCropped.png"
-        alt="Carnordic Technology"
-        className="auth-logo"
-      />
-
-      <h1>Logga in</h1>
-
       <div className="form-group">
         <label htmlFor="username">Användarnamn</label>
         <input

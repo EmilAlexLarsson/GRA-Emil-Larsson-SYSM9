@@ -85,7 +85,8 @@ a {
   gap: 32px;
 }
 
-.nav a {
+.nav a,
+.nav-link-button {
   color: #f5f3f4;
   text-decoration: none;
   font-size: 17px;
@@ -96,11 +97,21 @@ a {
   gap: 8px;
 }
 
-.nav a:hover {
+.nav a:hover,
+.nav-link-button:hover {
   text-decoration: underline;
 }
 
-.nav img {
+.nav-link-button {
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  cursor: pointer;
+  padding: 0;
+}
+
+.nav img,
+.nav-link-button img {
   width: 18px;
   height: 18px;
 }

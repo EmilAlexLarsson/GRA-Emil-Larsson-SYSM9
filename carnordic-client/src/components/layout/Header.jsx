@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useCart } from "../../contexts/CartContext";
+import { useAuth } from "../../contexts/AuthContext";
 
 function Header() {
   const { cartCount } = useCart();
+  const { authed, logoutUser } = useAuth();
   const [menuOpen, setMenuOpen] = useState(false);
 
   function closeMenu() {
@@ -32,10 +34,21 @@ function Header() {
             Favoriter
           </Link>
 
-          <Link to="/login">
-            <img src="/icons/user-solid-full.svg" alt="" />
-            Logga in
-          </Link>
+          {authed ? (
+            <button
+              type="button"
+              className="nav-link-button"
+              onClick={logoutUser}
+            >
+              <img src="/icons/user-solid-full.svg" alt="" />
+              Logga ut
+            </button>
+          ) : (
+            <Link to="/login">
+              <img src="/icons/user-solid-full.svg" alt="" />
+              Logga in
+            </Link>
+          )}
 
           <Link to="/cart">
             <img src="/icons/cart-shopping-solid-full.svg" alt="" />

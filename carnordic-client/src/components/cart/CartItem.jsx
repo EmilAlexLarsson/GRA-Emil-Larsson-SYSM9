@@ -20,7 +20,7 @@ function CartItem({ item }) {
           <button
             type="button"
             className="cart-item__quantity-btn cart-item__quantity-btn--minus"
-            onClick={() => decreaseQuantity(item.id)}
+            onClick={() => decreaseQuantity(item._id)}
             aria-label="Minska antal"
           >
             <img src="/icons/minus-solid-full.svg" alt="Minska antal" />
@@ -31,7 +31,7 @@ function CartItem({ item }) {
           <button
             type="button"
             className="cart-item__quantity-btn cart-item__quantity-btn--plus"
-            onClick={() => increaseQuantity(item.id)}
+            onClick={() => increaseQuantity(item._id)}
             aria-label="Öka antal"
           >
             <img src="/icons/plus-solid-full.svg" alt="Öka antal" />
@@ -42,7 +42,7 @@ function CartItem({ item }) {
       <button
         type="button"
         className="cart-item__remove"
-        onClick={() => removeFromCart(item.id)}
+        onClick={() => removeFromCart(item._id)}
       >
         <img src="/icons/trash-solid-full.svg" alt="Ta bort" />
         Ta bort

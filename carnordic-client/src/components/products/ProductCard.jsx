@@ -6,11 +6,11 @@ function ProductCard({ product }) {
   const { addToCart } = useCart();
   const { toggleFavorite, isFavorite } = useFavorites();
 
-  const favorite = isFavorite(product.id);
+  const favorite = isFavorite(product._id);
 
   return (
     <article className="product-card">
-      <Link to={`/products/${product.id}`}>
+      <Link to={`/products/${product._id}`}>
         <img
           className="product-card__image"
           src={product.image}

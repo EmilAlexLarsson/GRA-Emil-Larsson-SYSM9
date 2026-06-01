@@ -1,7 +1,6 @@
 const API_BASE = "http://localhost:3000/api";
 
-// local för token
-
+// LOCALSTORAGE för token
 function getToken() {
   return localStorage.getItem("token");
 }
@@ -20,7 +19,7 @@ export function isAuthenticated() {
   return !!getToken();
 }
 
-// genrell
+// GENERELL request-funktion
 async function request(path, options = {}) {
   const headers = options.headers || {};
 
@@ -55,7 +54,6 @@ async function request(path, options = {}) {
 }
 
 // PRODUCTS
-
 export async function getProducts() {
   return request("/products", {
     method: "GET",
@@ -68,8 +66,7 @@ export async function getProductById(id) {
   });
 }
 
-// orders (checkout)
-
+// ORDERS
 export async function createOrder(order) {
   return request("/orders", {
     method: "POST",
@@ -77,8 +74,28 @@ export async function createOrder(order) {
   });
 }
 
-// favoriter
+// USERS / AUTH
+export async function login({ username, password }) {
+  return request("/users/login", {
+    method: "POST",
+    body: JSON.stringify({ username, password }),
+  });
+}
 
+export async function register({ username, email, password }) {
+  return request("/users/register", {
+    method: "POST",
+    body: JSON.stringify({ username, email, password }),
+  });
+}
+
+export async function getCurrentUser() {
+  return request("/users/current", {
+    method: "GET",
+  });
+}
+
+// FAVORITES
 export async function getFavorites() {
   return request("/favorites", {
     method: "GET",
@@ -92,27 +109,9 @@ export async function addFavorite(productId) {
   });
 }
 
-export async function removeFavorite(id) {
-  return request(`/favorites/${id}`, {
+export async function removeFavorite(productId) {
+  return request(`/favorites/${productId}`, {
     method: "DELETE",
-  });
-}
-
-export async function login({ username, password }) {
-  const data = await request("/users/login", {
-    method: "POST",
-    body: JSON.stringify({ username, password }),
-  });
-
-  saveToken(data.accessToken);
-
-  return data;
-}
-
-export async function register({ username, email, password }) {
-  return request("/users/register", {
-    method: "POST",
-    body: JSON.stringify({ username, email, password }),
   });
 }
 
@@ -120,11 +119,12 @@ export default {
   getProducts,
   getProductById,
   createOrder,
+  login,
+  register,
+  getCurrentUser,
   getFavorites,
   addFavorite,
   removeFavorite,
-  login,
-  register,
   saveToken,
   logout,
   isAuthenticated,

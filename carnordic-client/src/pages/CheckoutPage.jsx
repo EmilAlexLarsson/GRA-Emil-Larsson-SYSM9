@@ -82,7 +82,7 @@ function CheckoutPage() {
       paymentMethod,
       paymentDetails: paymentMethod === "card" ? cardDetails : swishDetails,
       items: cartItems.map((item) => ({
-        productId: item.id,
+        productId: item._id,
         name: item.name,
         model: item.model,
         price: item.price,

@@ -37,7 +37,7 @@ function ProductDetail() {
     return <p>Produkten hittades inte.</p>;
   }
 
-  const favorite = isFavorite(product.id);
+  const favorite = isFavorite(product._id);
   return (
     <section className="product-detail-page">
       <div className="product-detail-container">

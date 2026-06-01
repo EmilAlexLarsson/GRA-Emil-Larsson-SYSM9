@@ -75,7 +75,7 @@ function HomePage() {
         {!loading && !error && (
           <div className="popular-grid">
             {popularProducts.map((product) => (
-              <ProductCard key={product.id} product={product} />
+              <ProductCard key={product._id} product={product} />
             ))}
           </div>
         )}

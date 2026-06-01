@@ -1,4 +1,4 @@
-const API_BASE = "http://localhost:3001";
+const API_BASE = "http://localhost:3000/api";
 
 // local för token
 
@@ -85,10 +85,10 @@ export async function getFavorites() {
   });
 }
 
-export async function addFavorite(favorite) {
+export async function addFavorite(productId) {
   return request("/favorites", {
     method: "POST",
-    body: JSON.stringify(favorite),
+    body: JSON.stringify({ productId }),
   });
 }
 
@@ -98,32 +98,21 @@ export async function removeFavorite(id) {
   });
 }
 
-//inte riktig login än
 export async function login({ username, password }) {
-  const users = await request(
-    `/users?username=${username}&password=${password}`,
-    {
-      method: "GET",
-    },
-  );
+  const data = await request("/users/login", {
+    method: "POST",
+    body: JSON.stringify({ username, password }),
+  });
 
-  if (!users || users.length === 0) {
-    throw new Error("Fel användarnamn eller lösenord");
-  }
+  saveToken(data.accessToken);
 
-  const fakeToken = "fake-jwt-token";
-  saveToken(fakeToken);
-
-  return {
-    user: users[0],
-    token: fakeToken,
-  };
+  return data;
 }
 
-export async function register(user) {
-  return request("/users", {
+export async function register({ username, email, password }) {
+  return request("/users/register", {
     method: "POST",
-    body: JSON.stringify(user),
+    body: JSON.stringify({ username, email, password }),
   });
 }
 

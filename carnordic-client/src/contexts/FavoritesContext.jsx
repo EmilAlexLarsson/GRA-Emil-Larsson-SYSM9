@@ -1,63 +1,93 @@
-import { createContext, useContext, useState } from "react";
-
+import { createContext, useContext, useEffect, useState } from "react";
+import api from "../api";
+import { useAuth } from "./AuthContext";
+//skapar en context
 const FavoritesContext = createContext();
 
 export function FavoritesProvider({ children }) {
-  const [favorites, setFavorites] = useState([]);
-  //Lägger till en produkt i favoriterna, gör inget om den redan finns där
-  function addToFavorites(product) {
-    setFavorites((prevFavorites) => {
-      const alreadyFavorite = prevFavorites.find(
-        (favorite) => favorite.id === product.id,
-      );
+  //om användaren är inloggad eller inte
+  const { authed } = useAuth();
+  //kollar på localStorage för att se om det finns några sparade favoriter, annars startar med en tom array
+  const [favorites, setFavorites] = useState(() => {
+    const saved = localStorage.getItem("carnordic-favorites");
+    return saved ? JSON.parse(saved) : [];
+  });
+  //körs när authed ändras, alltså när användaren loggar in eller ut
+  useEffect(() => {
+    async function loadFavorites() {
+      //hämta från backend om användaren är inloggad
+      if (authed) {
+        try {
+          const data = await api.getFavorites();
+          setFavorites(data);
+        } catch (error) {
+          //tom
+          setFavorites([]);
+        }
+      } else {
+        const saved = localStorage.getItem("carnordic-favorites");
+        setFavorites(saved ? JSON.parse(saved) : []);
+      }
+    }
+
+    loadFavorites();
+  }, [authed]);
+
+  async function toggleFavorite(product) {
+    const productId = product._id;
+    //kollar om produkten redan är favorit
+    const alreadyFavorite = favorites.some(
+      (favorite) => favorite._id === productId,
+    );
+
+    if (authed) {
+      try {
+        if (alreadyFavorite) {
+          //om det redan är favorit, ta bort den
+          const updatedFavorites = await api.removeFavorite(productId);
+          setFavorites(updatedFavorites);
+        } else {
+          //om det inte är favorit, lägg till den
+          const updatedFavorites = await api.addFavorite(productId);
+          //uppdaterar listan
+          setFavorites(updatedFavorites);
+        }
+      } catch (error) {
+        console.log("Kunde inte uppdatera favoriter:", error);
+      }
+    } else {
+      //om ingen är inloggad, hanteras favoriter i localStorage
+      let updatedFavorites;
 
       if (alreadyFavorite) {
-        return prevFavorites;
+        //ta bort produkten från favoritlistan
+        updatedFavorites = favorites.filter(
+          (favorite) => favorite._id !== productId,
+        );
+      } else {
+        //lägg till produkten i favoritlistan
+        updatedFavorites = [...favorites, product];
       }
-
-      return [...prevFavorites, product];
-    });
-  }
-  //Tar bort en produkt från favoriterna
-  function removeFromFavorites(productId) {
-    setFavorites(
-      (prevFavorites) =>
-        prevFavorites.filter((favorite) => favorite.id !== productId), //tar bort produkten med det id:t
-    );
-  }
-
-  //Lägger till eller tar bort en produkt från favoriterna beroende på om den redan finns där eller inte
-  function toggleFavorite(product) {
-    const alreadyFavorite = favorites.find(
-      (favorite) => favorite.id === product.id,
-    );
-
-    if (alreadyFavorite) {
-      removeFromFavorites(product.id);
-    } else {
-      addToFavorites(product);
+      //uppdatera
+      setFavorites(updatedFavorites);
+      //sparar i localStorage
+      localStorage.setItem(
+        "carnordic-favorites",
+        JSON.stringify(updatedFavorites),
+      );
     }
   }
-
-  //Kollar om en produkt finns i favoriterna
+  //kolla om produkten är favorit eller inte, används för att visa rätt ikon i produktlistan
   function isFavorite(productId) {
-    const favorite = favorites.find((favorite) => favorite.id === productId);
-    if (favorite) {
-      return true;
-    } else {
-      return false;
-    }
+    return favorites.some((favorite) => favorite._id === productId);
   }
-
-  //Antal produkter i favoriterna
+  //antal
   const favoritesCount = favorites.length;
 
   return (
     <FavoritesContext.Provider
       value={{
         favorites,
-        addToFavorites,
-        removeFromFavorites,
         toggleFavorite,
         isFavorite,
         favoritesCount,

@@ -4,12 +4,21 @@ const productRoutes = require("./routes/productRoutes");
 const orderRoutes = require("./routes/orderRoutes");
 const userRoutes = require("./routes/userRoutes");
 const favoriteRoutes = require("./routes/favoriteRoutes");
+
+const cors = require("cors");
+
 const { connect } = require("mongoose");
 const connectDB = require("./config/dbConnection");
 
 connectDB();
 
 const app = express();
+
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+  }),
+);
 
 app.use(express.json()); //middleware
 

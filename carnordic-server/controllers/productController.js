@@ -5,6 +5,7 @@ const Product = require("../models/productModel");
 // @route GET /api/products
 // @access public
 const getProducts = asyncHandler(async (req, res) => {
+  //Hämtar alla produkter från db
   const products = await Product.find({});
   res.json(products);
 });
@@ -13,6 +14,7 @@ const getProducts = asyncHandler(async (req, res) => {
 // @route GET /api/products/:id
 // @access public
 const getProduct = asyncHandler(async (req, res) => {
+  //Hämtar en produkt från db med idt från url:en
   const product = await Product.findById(req.params.id);
   if (!product) {
     res.status(404);

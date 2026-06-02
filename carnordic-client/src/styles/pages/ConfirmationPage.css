@@ -1,0 +1,77 @@
+.confirmation-page {
+  min-height: 100vh;
+  padding: 48px 16px 80px;
+  display: flex;
+  justify-content: center;
+  background-color: var(--color-bg);
+}
+
+.confirmation-card {
+  width: 100%;
+  max-width: 660px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 34px 56px;
+  text-align: center;
+  background-color: var(--color-card);
+}
+
+.confirmation-logo {
+  width: 260px;
+  margin: 0 auto 26px;
+}
+
+.confirmation-card h1 {
+  margin: 0 0 26px;
+  font-size: 32px;
+  text-transform: uppercase;
+}
+
+.confirmation-items {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 70px;
+}
+
+.confirmation-summary {
+  max-width: 300px;
+  margin: 0 auto 24px;
+}
+
+.confirmation-button {
+  width: 100%;
+  max-width: 260px;
+  min-height: 44px;
+  margin: 0 auto;
+  background-color: var(--color-blue);
+  color: var(--color-white-text);
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .confirmation-page {
+    padding: 32px 16px 70px;
+  }
+
+  .confirmation-card {
+    padding: 28px 18px;
+  }
+
+  .confirmation-logo {
+    width: 220px;
+  }
+
+  .confirmation-card h1 {
+    font-size: 26px;
+  }
+
+  .confirmation-items {
+    margin-bottom: 46px;
+  }
+}

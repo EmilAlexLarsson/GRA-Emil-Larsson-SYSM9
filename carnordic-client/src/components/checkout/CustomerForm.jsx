@@ -1,3 +1,5 @@
+import "../../styles/components/CustomerForm.css";
+
 function CustomerForm({ customer, setCustomer }) {
   return (
     <div className="checkout-box">

@@ -3,6 +3,7 @@ import api from "../api";
 import { Link } from "react-router-dom";
 import useFetch from "../hooks/useFetch";
 import ProductCard from "../components/products/ProductCard";
+import "../styles/pages/HomePage.css";
 
 function HomePage() {
   const [products, setProducts] = useState([]);

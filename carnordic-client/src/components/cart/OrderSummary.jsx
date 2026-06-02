@@ -1,4 +1,5 @@
 import { useCart } from "../../contexts/CartContext";
+import "../../styles/components/OrderSummary.css";
 
 function OrderSummary({ subtotal, shipping = 0, total }) {
   const cart = useCart();

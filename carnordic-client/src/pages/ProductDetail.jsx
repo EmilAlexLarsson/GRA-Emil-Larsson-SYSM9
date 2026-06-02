@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import api from "../api";
 import { useCart } from "../contexts/CartContext";
 import { useFavorites } from "../contexts/FavoritesContext";
+import "../styles/pages/ProductDetail.css";
 
 function ProductDetail() {
   const { productId } = useParams();

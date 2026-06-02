@@ -1,3 +1,5 @@
+import "../../styles/components/RegisterForm.css";
+
 function RegisterForm({ form, error, onChange, onSubmit }) {
   return (
     <form onSubmit={onSubmit}>

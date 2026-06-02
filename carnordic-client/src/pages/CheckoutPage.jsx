@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useCart } from "../contexts/CartContext";
 import api from "../api";
+import "../styles/pages/CheckoutPage.css";
 
 import CustomerForm from "../components/checkout/CustomerForm";
 import CardPaymentForm from "../components/checkout/CardPaymentForm";

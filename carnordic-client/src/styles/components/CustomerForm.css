@@ -1,0 +1,48 @@
+.checkout-box {
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 20px;
+  background-color: var(--color-card);
+}
+
+.checkout-box h2 {
+  margin: 0 0 18px;
+  font-size: 22px;
+  color: var(--color-text);
+}
+
+.checkout-input-row {
+  display: grid;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.form-group input {
+  min-height: 44px;
+  border: 1px solid #777;
+  border-radius: 4px;
+  padding: 0 12px;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+.form-group input::placeholder {
+  color: #6b7280;
+}
+
+@media (min-width: 768px) {
+  .checkout-input-row {
+    grid-template-columns: 1fr 1fr;
+  }
+}

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useCart } from "../../contexts/CartContext";
 import { useFavorites } from "../../contexts/FavoritesContext";
+import "../../styles/components/ProductCard.css";
 
 function ProductCard({ product }) {
   const { addToCart } = useCart();

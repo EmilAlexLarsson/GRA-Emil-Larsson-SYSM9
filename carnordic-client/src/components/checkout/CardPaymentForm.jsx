@@ -1,3 +1,5 @@
+import "../../styles/components/CardPaymentForm.css";
+
 function CardPaymentForm({ cardDetails, setCardDetails }) {
   return (
     <div className="payment-fields">

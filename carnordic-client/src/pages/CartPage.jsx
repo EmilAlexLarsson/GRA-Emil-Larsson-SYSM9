@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useCart } from "../contexts/CartContext";
 import CartItem from "../components/cart/CartItem";
 import OrderSummary from "../components/cart/OrderSummary";
+import "../styles/pages/CartPage.css";
 
 function CartPage() {
   const { cartItems } = useCart();

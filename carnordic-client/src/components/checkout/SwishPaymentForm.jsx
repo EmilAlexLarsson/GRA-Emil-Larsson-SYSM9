@@ -1,3 +1,5 @@
+import "../../styles/components/SwishPaymentForm.css";
+
 function SwishPaymentForm({ swishDetails, setSwishDetails }) {
   return (
     <div className="payment-fields">

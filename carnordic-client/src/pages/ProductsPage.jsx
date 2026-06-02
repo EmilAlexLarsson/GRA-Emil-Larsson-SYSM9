@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import useFetch from "../hooks/useFetch";
 import api from "../api";
 import ProductCard from "../components/products/ProductCard";
+import "../styles/pages/ProductsPage.css";
 
 function ProductsPage() {
   // const {

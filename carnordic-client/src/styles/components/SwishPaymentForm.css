@@ -1,0 +1,37 @@
+.payment-fields {
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.payment-fields .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.payment-fields label {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.payment-fields input {
+  min-height: 44px;
+  border: 1px solid #777;
+  border-radius: 4px;
+  padding: 0 12px;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+.payment-fields input::placeholder {
+  color: #6b7280;
+}
+
+.swish-info {
+  margin: 4px 0 0;
+  font-size: 15px;
+  color: var(--color-muted);
+}

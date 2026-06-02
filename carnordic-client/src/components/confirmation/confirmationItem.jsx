@@ -1,3 +1,5 @@
+import "../../styles/components/ConfirmationItem.css";
+
 function ConfirmationItem({ item }) {
   return (
     <article className="confirmation-item">

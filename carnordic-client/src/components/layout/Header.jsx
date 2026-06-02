@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useCart } from "../../contexts/CartContext";
 import { useAuth } from "../../contexts/AuthContext";
+import "../../styles/components/Header.css";
 
 function Header() {
   const { cartCount } = useCart();

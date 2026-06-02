@@ -1,3 +1,5 @@
+import "../../styles/components/LoginForm.css";
+
 function LoginForm({ form, error, onChange, onSubmit }) {
   return (
     <form onSubmit={onSubmit}>

@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import api from "../api";
 import { useAuth } from "../contexts/AuthContext";
 import LoginForm from "../components/auth/LoginForm";
+import "../styles/pages/LoginPage.css";
 
 function LoginPage() {
   const navigate = useNavigate();

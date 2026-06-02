@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import OrderSummary from "../components/cart/OrderSummary";
 import ConfirmationItem from "../components/confirmation/ConfirmationItem";
+import "../styles/pages/ConfirmationPage.css";
 
 function ConfirmationPage() {
   const savedOrder = localStorage.getItem("latestOrder");

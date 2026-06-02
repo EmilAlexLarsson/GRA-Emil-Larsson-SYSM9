@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import OrderSummary from "../components/cart/OrderSummary";
-import ConfirmationItem from "../components/confirmation/ConfirmationItem";
+import ConfirmationItem from "../components/confirmation/confirmationItem";
 import "../styles/pages/ConfirmationPage.css";
 
 function ConfirmationPage() {
@@ -34,7 +34,7 @@ function ConfirmationPage() {
 
         <div className="confirmation-items">
           {order.items.map((item) => (
-            <ConfirmationItem key={item.productId} item={item} />
+            <ConfirmationItem key={item.productId || item.id} item={item} />
           ))}
         </div>
 

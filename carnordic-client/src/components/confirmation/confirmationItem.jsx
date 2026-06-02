@@ -1,4 +1,4 @@
-import "../../styles/components/ConfirmationItem.css";
+import "../../styles/components/confirmationItem.css";
 
 function ConfirmationItem({ item }) {
   return (

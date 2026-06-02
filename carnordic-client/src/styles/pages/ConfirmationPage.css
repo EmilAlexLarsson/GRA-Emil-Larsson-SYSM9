@@ -1,29 +1,33 @@
 .confirmation-page {
-  min-height: 100vh;
-  padding: 48px 16px 80px;
+  width: 100%;
+  min-height: calc(100vh - 72px);
+  background-color: var(--color-bg);
+  padding: 64px 16px 80px;
   display: flex;
   justify-content: center;
-  background-color: var(--color-bg);
+  align-items: flex-start;
 }
 
 .confirmation-card {
   width: 100%;
   max-width: 660px;
+  min-height: 620px;
   border: 1px solid var(--color-border);
-  border-radius: 8px;
-  padding: 34px 56px;
-  text-align: center;
+  border-radius: 12px;
   background-color: var(--color-card);
+  padding: 32px 56px;
+  text-align: center;
 }
 
 .confirmation-logo {
   width: 260px;
-  margin: 0 auto 26px;
+  margin: 0 auto 24px;
 }
 
 .confirmation-card h1 {
-  margin: 0 0 26px;
+  margin: 0 0 32px;
   font-size: 32px;
+  font-weight: 500;
   text-transform: uppercase;
 }
 
@@ -31,12 +35,47 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
-  margin-bottom: 70px;
+  margin-bottom: 76px;
 }
 
 .confirmation-summary {
+  width: 100%;
   max-width: 300px;
-  margin: 0 auto 24px;
+  margin: 0 auto 20px;
+}
+
+.confirmation-summary .order-summary {
+  gap: 0;
+}
+
+.confirmation-summary .order-summary__box {
+  border: none;
+  padding: 0;
+  background-color: transparent;
+}
+
+.confirmation-summary .order-summary__box h2 {
+  margin: 0 0 18px;
+  font-size: 25px;
+  text-align: left;
+  text-decoration: underline;
+}
+
+.confirmation-summary .order-summary__row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  font-size: 18px;
+  text-align: left;
+}
+
+.confirmation-summary .order-summary__row--total {
+  margin-top: 16px;
+  font-weight: 700;
+}
+
+.confirmation-summary .order-summary__buttons {
+  display: none;
 }
 
 .confirmation-button {
@@ -44,9 +83,9 @@
   max-width: 260px;
   min-height: 44px;
   margin: 0 auto;
+  border-radius: 6px;
   background-color: var(--color-blue);
   color: var(--color-white-text);
-  border-radius: 4px;
   text-decoration: none;
   font-weight: 700;
   display: flex;
@@ -54,24 +93,59 @@
   justify-content: center;
 }
 
+.confirmation-button:hover {
+  background-color: #183f6b;
+}
+
 @media (max-width: 768px) {
   .confirmation-page {
-    padding: 32px 16px 70px;
+    min-height: calc(100vh - 64px);
+    padding: 28px 12px 76px;
   }
 
   .confirmation-card {
-    padding: 28px 18px;
+    max-width: 100%;
+    min-height: 435px;
+    padding: 28px 10px 14px;
   }
 
   .confirmation-logo {
-    width: 220px;
+    width: 170px;
+    margin-bottom: 24px;
   }
 
   .confirmation-card h1 {
-    font-size: 26px;
+    margin-bottom: 28px;
+    font-size: 22px;
   }
 
   .confirmation-items {
-    margin-bottom: 46px;
+    margin-bottom: 86px;
+  }
+
+  .confirmation-summary {
+    max-width: 250px;
+    margin-bottom: 16px;
+  }
+
+  .confirmation-summary .order-summary__box h2 {
+    font-size: 20px;
+    margin-bottom: 12px;
+  }
+
+  .confirmation-summary .order-summary__row {
+    font-size: 15px;
+    margin-bottom: 8px;
+  }
+
+  .confirmation-summary .order-summary__row--total {
+    font-size: 17px;
+    margin-top: 10px;
+  }
+
+  .confirmation-button {
+    max-width: 230px;
+    min-height: 44px;
+    font-size: 15px;
   }
 }

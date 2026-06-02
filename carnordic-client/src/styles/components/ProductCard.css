@@ -1,3 +1,8 @@
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
 .product-card {
   background-color: var(--color-card);
   border-radius: 8px;
@@ -83,8 +88,16 @@
 .btn-icon--active {
   background-color: rgba(32, 84, 142, 0.08);
 }
+.btn-added {
+  background-color: #1f7a4d;
+  color: var(--color-white-text);
+}
 
 @media (min-width: 768px) {
+  .product-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 28px;
+  }
   .product-card__image {
     height: 180px;
   }

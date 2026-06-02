@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useCart } from "../../contexts/CartContext";
 import { useFavorites } from "../../contexts/FavoritesContext";
@@ -6,8 +7,17 @@ import "../../styles/components/ProductCard.css";
 function ProductCard({ product }) {
   const { addToCart } = useCart();
   const { toggleFavorite, isFavorite } = useFavorites();
+  const [added, setAdded] = useState(false);
 
   const favorite = isFavorite(product._id);
+
+  function handleAddToCart() {
+    addToCart(product);
+    setAdded(true);
+    setTimeout(() => {
+      setAdded(false);
+    }, 1200);
+  }
 
   return (
     <article className="product-card">
@@ -26,10 +36,11 @@ function ProductCard({ product }) {
 
         <div className="product-card__btns">
           <button
-            className="btn btn-primary"
-            onClick={() => addToCart(product)}
+            type="button"
+            className={added ? "btn btn-primary btn-added" : "btn btn-primary"}
+            onClick={handleAddToCart}
           >
-            Lägg i varukorg
+            {added ? "Tillagd!" : "Lägg i varukorg"}
           </button>
 
           <button

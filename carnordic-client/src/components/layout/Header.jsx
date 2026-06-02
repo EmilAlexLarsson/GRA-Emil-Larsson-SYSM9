@@ -103,15 +103,31 @@ function Header() {
             </span>
           </Link>
 
-          <Link to="/login" onClick={closeMenu}>
-            <span>
-              <img src="/icons/user-solid-full.svg" alt="" />
-              Logga in
-            </span>
-            <span>
-              <img src="/icons/arrow-down-solid-full.svg" alt="" />
-            </span>
-          </Link>
+          {authed ? (
+            <button
+              type="button"
+              className="mobile-menu-button"
+              onClick={logoutUser}
+            >
+              <span>
+                <img src="/icons/user-solid-full.svg" alt="" />
+                Logga ut
+              </span>
+              <span>
+                <img src="/icons/arrow-down-solid-full.svg" alt="" />
+              </span>
+            </button>
+          ) : (
+            <Link to="/login" onClick={closeMenu}>
+              <span>
+                <img src="/icons/user-solid-full.svg" alt="" />
+                Logga in
+              </span>
+              <span>
+                <img src="/icons/arrow-down-solid-full.svg" alt="" />
+              </span>
+            </Link>
+          )}
         </nav>
       )}
     </header>

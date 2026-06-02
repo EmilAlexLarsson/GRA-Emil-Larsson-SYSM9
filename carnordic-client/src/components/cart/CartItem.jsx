@@ -27,7 +27,7 @@ function CartItem({ item }) {
             <img src="/icons/minus-solid-full.svg" alt="Minska antal" />
           </button>
 
-          <span>{item.quantity}</span>
+          <span className="cart-item__quantity-value">{item.quantity}</span>
 
           <button
             type="button"

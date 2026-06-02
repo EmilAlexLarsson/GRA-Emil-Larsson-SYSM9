@@ -1,9 +1,22 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 
 const CartContext = createContext(null); // Skapar en kontext för varukorgen
 
 export function CartProvider({ children }) {
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = useState(() => {
+    //Hämtar varukorgen från localStorage
+    const savedCart = localStorage.getItem("carnordic-cart");
+
+    if (savedCart) {
+      return JSON.parse(savedCart);
+    }
+
+    return [];
+  });
+  //När varukorgen ändras så sparas den i localStorage så att de finns kvar
+  useEffect(() => {
+    localStorage.setItem("carnordic-cart", JSON.stringify(cartItems));
+  }, [cartItems]);
 
   //Lägger till en produkt i varukorgen, ökar antal om den redan finns i varukorgen
   //Användas i ProductsPage och ProductDetail

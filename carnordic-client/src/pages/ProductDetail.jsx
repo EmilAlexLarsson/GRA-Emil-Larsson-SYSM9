@@ -12,6 +12,7 @@ function ProductDetail() {
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const [added, setAdded] = useState(false);
 
   useEffect(() => {
     async function loadProduct() {
@@ -36,6 +37,15 @@ function ProductDetail() {
   }
   if (!product) {
     return <p>Produkten hittades inte.</p>;
+  }
+  function handleAddToCart() {
+    addToCart(product);
+
+    setAdded(true);
+
+    setTimeout(() => {
+      setAdded(false);
+    }, 1200);
   }
 
   const favorite = isFavorite(product._id);
@@ -74,10 +84,15 @@ function ProductDetail() {
 
             <div className="product-detail-actions">
               <button
-                className="detail-btn detail-btn-primary"
-                onClick={() => addToCart(product)}
+                type="button"
+                className={
+                  added
+                    ? "detail-btn detail-btn-primary detail-btn-added"
+                    : "detail-btn detail-btn-primary"
+                }
+                onClick={handleAddToCart}
               >
-                Lägg i varukorg
+                {added ? "Tillagd!" : "Lägg i varukorg"}
               </button>
 
               <button

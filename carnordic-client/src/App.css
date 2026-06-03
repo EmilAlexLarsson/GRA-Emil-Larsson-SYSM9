@@ -43,3 +43,22 @@ button {
 a {
   color: inherit;
 }
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.layout main {
+  flex: 1;
+}

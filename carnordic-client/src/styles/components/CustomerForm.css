@@ -13,6 +13,7 @@
 
 .checkout-input-row {
   display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 16px;
 }
 
@@ -41,8 +42,8 @@
   color: #6b7280;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 768px) {
   .checkout-input-row {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
   }
 }

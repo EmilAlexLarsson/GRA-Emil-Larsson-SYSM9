@@ -64,7 +64,7 @@ function ConfirmationPage() {
 
         <div className="confirmation-items">
           {order.items.map((item) => (
-            <ConfirmationItem key={item.productId || item.id} item={item} />
+            <ConfirmationItem key={item.productId || item._id} item={item} />
           ))}
         </div>
 

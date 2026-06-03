@@ -52,9 +52,11 @@ function CheckoutPage() {
       setError("Fyll i namn.");
       return;
     }
-    //epost måste vara ifyllt och innehålla @
-    if (customer.email.trim() === "" || !customer.email.includes("@")) {
-      setError("Fyll i en giltig e-postadress.");
+    // e-post måste vara giltig, t.ex. namn@example.com
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailRegex.test(customer.email.trim())) {
+      setError("Fyll i en giltig e-postadress, till exempel namn@example.com.");
       return;
     }
     //validering för kortbetalning

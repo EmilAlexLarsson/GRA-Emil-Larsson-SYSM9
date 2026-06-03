@@ -65,6 +65,8 @@ function ProductDetail() {
 
             <p className="product-detail-model">{product.model}</p>
 
+            <strong className="product-detail-price">{product.price} kr</strong>
+
             <div className="product-detail-description">
               <h2>Beskrivning</h2>
               <p>{product.description}</p>

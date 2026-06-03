@@ -62,6 +62,13 @@
   font-size: 20px;
   font-weight: 500;
 }
+.product-detail-price {
+  display: block;
+  margin-bottom: 28px;
+  font-size: 34px;
+  font-weight: 700;
+  color: var(--color-text);
+}
 
 .product-detail-description h2 {
   margin: 0 0 8px;
@@ -125,6 +132,10 @@
 
   .product-detail-model {
     font-size: 18px;
+  }
+  .product-detail-price {
+    font-size: 28px;
+    margin-bottom: 22px;
   }
 
   .product-detail-actions {

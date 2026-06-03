@@ -11,21 +11,24 @@ import OrderSummary from "../components/cart/OrderSummary";
 
 function CheckoutPage() {
   const navigate = useNavigate();
+  //hämtar varukorgen
   const { cartItems, totalPrice, clearCart } = useCart();
 
+  //kundinfo
   const [customer, setCustomer] = useState({
     name: "",
     email: "",
   });
-
+  //betalningsmetod
   const [paymentMethod, setPaymentMethod] = useState("card");
 
+  //kortbetalning
   const [cardDetails, setCardDetails] = useState({
     cardNumber: "",
     expiryDate: "",
     cvc: "",
   });
-
+  //swish
   const [swishDetails, setSwishDetails] = useState({
     phone: "",
   });
@@ -35,25 +38,26 @@ function CheckoutPage() {
   const shipping = 0;
   const total = totalPrice + shipping;
 
+  //När användaren klickar på "Slutför köp"
   async function handleSubmit(e) {
     e.preventDefault();
     setError("");
-
+    //måste finnas produkter
     if (cartItems.length === 0) {
       setError("Din varukorg är tom.");
       return;
     }
-
+    //namn måste vara ifyllt
     if (customer.name.trim() === "") {
       setError("Fyll i namn.");
       return;
     }
-
+    //epost måste vara ifyllt och innehålla @
     if (customer.email.trim() === "" || !customer.email.includes("@")) {
       setError("Fyll i en giltig e-postadress.");
       return;
     }
-
+    //validering för kortbetalning
     if (paymentMethod === "card") {
       if (cardDetails.cardNumber.trim().length < 8) {
         setError("Fyll i ett giltigt kortnummer.");
@@ -71,13 +75,14 @@ function CheckoutPage() {
       }
     }
 
+    //validering för swish
     if (paymentMethod === "swish") {
       if (swishDetails.phone.trim().length < 10) {
         setError("Fyll i ett giltigt mobilnummer.");
         return;
       }
     }
-
+    //skapa orderobjekt
     const order = {
       customer,
       paymentMethod,
@@ -97,12 +102,13 @@ function CheckoutPage() {
     };
 
     try {
+      //skickar ordern via api.js
       const savedOrder = await api.createOrder(order);
-
+      //sparar senaste ordern i localStorage så att den kan visas på bekräftelsesidan
       localStorage.setItem("latestOrder", JSON.stringify(savedOrder));
-
+      //tömmer
       clearCart();
-
+      //skicka vidare användaren
       navigate("/confirmation");
     } catch (error) {
       setError("Något gick fel när ordern skapades.");

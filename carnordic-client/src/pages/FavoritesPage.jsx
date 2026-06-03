@@ -4,6 +4,7 @@ import ProductCard from "../components/products/ProductCard";
 import "../styles/pages/FavoritesPage.css";
 
 function FavoritesPage() {
+  //hämtar favoriter från context
   const { favorites } = useFavorites();
 
   return (

@@ -7,8 +7,9 @@ import "../styles/pages/LoginPage.css";
 
 function LoginPage() {
   const navigate = useNavigate();
+  //hämtar login-funktionen från AuthContext
   const { login } = useAuth();
-
+  //formuläret för inloggning
   const [form, setForm] = useState({
     username: "",
     password: "",
@@ -26,20 +27,22 @@ function LoginPage() {
   }
 
   async function handleSubmit(e) {
+    //stoppar sidan från att laddas om när formuläret skickas
     e.preventDefault();
     setError("");
-
+    //validering - både användarnamn och lösenord måste vara ifyllda
     if (!form.username.trim() || !form.password.trim()) {
       setError("Fyll i användarnamn och lösenord.");
       return;
     }
 
     try {
+      //skickar inloggningsförsöket via api.js
       const data = await api.login({
         username: form.username,
         password: form.password,
       });
-
+      //token
       login(data.accessToken);
 
       navigate("/");

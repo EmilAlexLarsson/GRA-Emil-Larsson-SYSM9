@@ -20,7 +20,7 @@ function CartPage() {
           />
           Fortsätt handla
         </Link>
-
+        {/* Om varukorgen är tom, visa meddelande */}
         {cartItems.length === 0 ? (
           <div className="cart-empty">
             <p>Din varukorg är tom.</p>
@@ -30,6 +30,7 @@ function CartPage() {
             </Link>
           </div>
         ) : (
+          //Om varukorgen har produkter, visa dem
           <div className="cart-page__layout">
             <div className="cart-page__items-box">
               {cartItems.map((item) => (

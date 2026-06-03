@@ -1,22 +1,16 @@
 import React, { useState, useEffect } from "react";
-import useFetch from "../hooks/useFetch";
 import api from "../api";
 import ProductCard from "../components/products/ProductCard";
 import "../styles/pages/ProductsPage.css";
 
 function ProductsPage() {
-  // const {
-  //   data: products,
-  //   loading,
-  //   error,
-  // } = useFetch("http://localhost:3001/products");
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
   const [search, setSearch] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("Alla");
-
+  //hämtar produkter via api.js
   useEffect(() => {
     async function loadProducts() {
       try {
@@ -31,7 +25,8 @@ function ProductsPage() {
 
     loadProducts();
   }, []);
-
+  //skapar en lista med katorgorier från produkterna
+  //new set tar bort dubletter så varje kategori bara visas en gång
   const categories = [
     "Alla",
     ...new Set(products ? products.map((product) => product.category) : []),
@@ -44,18 +39,18 @@ function ProductsPage() {
   if (error) {
     return <p>Något gick fel när produkterna hämtades.</p>;
   }
-
+  //filtrerar produkterna baserat på sökord och vald kategori
   const filteredProducts = products.filter((product) => {
     const searchLower = search.toLowerCase().trim();
-
+    //kontrollerar om produkten matchar kategorin
     const matchesCategory =
       selectedCategory === "Alla" || product.category === selectedCategory;
-
+    //kollar om sökningen matcher något av följande
     const matchesSearch =
       product.name.toLowerCase().includes(searchLower) ||
       product.model.toLowerCase().includes(searchLower) ||
       product.category.toLowerCase().includes(searchLower);
-
+    //produkten måste matcha både kategori och sökning för att visas
     return matchesCategory && matchesSearch;
   });
 

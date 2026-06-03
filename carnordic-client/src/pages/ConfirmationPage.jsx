@@ -4,9 +4,11 @@ import ConfirmationItem from "../components/confirmation/confirmationItem";
 import "../styles/pages/ConfirmationPage.css";
 
 function ConfirmationPage() {
+  //hämtar ordern från localstorage (som sparades i CheckoutPage)
   const savedOrder = localStorage.getItem("latestOrder");
+  //om order finns, parsa den, annars sätt order till null
   const order = savedOrder ? JSON.parse(savedOrder) : null;
-
+  //om ingen order hittas, visa meddelande
   if (!order) {
     return (
       <section className="confirmation-page">

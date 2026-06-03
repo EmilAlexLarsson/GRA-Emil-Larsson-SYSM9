@@ -5,12 +5,12 @@ const AuthContext = createContext(null);
 
 export function AuthProvider({ children }) {
   const [authed, setAuthed] = useState(isAuthenticated());
-
+  //körs när användaren loggar in, sparar token och sätter authed till true
   function login(token) {
     saveToken(token);
     setAuthed(true);
   }
-
+  //körs när användaren loggar ut, tar bort token och sätter authed till false
   function logoutUser() {
     api.logout();
     setAuthed(false);
@@ -22,7 +22,7 @@ export function AuthProvider({ children }) {
     </AuthContext.Provider>
   );
 }
-
+//custom hook
 export function useAuth() {
   return useContext(AuthContext);
 }

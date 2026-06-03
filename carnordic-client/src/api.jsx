@@ -95,9 +95,9 @@ export async function register({ username, email, password }) {
 // Alla API-anrop som kan behöva token går via denna funktion
 async function request(path, options = {}) {
   const headers = options.headers || {};
-
+  //hämtar token
   const token = getToken();
-
+  //om token finns, lägg till den i Authorization-headern
   if (token) {
     headers["Authorization"] = `Bearer ${token}`;
   }

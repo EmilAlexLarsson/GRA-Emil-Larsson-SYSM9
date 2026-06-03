@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import api from "../api";
 import { Link } from "react-router-dom";
-import useFetch from "../hooks/useFetch";
 import ProductCard from "../components/products/ProductCard";
 import "../styles/pages/HomePage.css";
 
@@ -9,7 +8,7 @@ function HomePage() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-
+  //hämtar produkter via api.js
   useEffect(() => {
     async function loadProducts() {
       try {
@@ -24,7 +23,7 @@ function HomePage() {
 
     loadProducts();
   }, []);
-
+  //visar de 4 första produkterna som "populära produkter"
   const popularProducts = products ? products.slice(0, 4) : [];
 
   return (

@@ -68,6 +68,7 @@ export function FavoritesProvider({ children }) {
         //lägg till produkten i favoritlistan
         updatedFavorites = [...favorites, product];
       }
+
       //uppdatera
       setFavorites(updatedFavorites);
       //sparar i localStorage

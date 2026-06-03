@@ -6,7 +6,7 @@ import "../styles/pages/RegisterPage.css";
 
 function RegisterPage() {
   const navigate = useNavigate();
-
+  //formulär
   const [form, setForm] = useState({
     username: "",
     email: "",

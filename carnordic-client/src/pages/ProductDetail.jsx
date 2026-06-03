@@ -14,6 +14,7 @@ function ProductDetail() {
   const [error, setError] = useState("");
   const [added, setAdded] = useState(false);
 
+  //hämtar produkten via api.js
   useEffect(() => {
     async function loadProduct() {
       try {
@@ -38,6 +39,7 @@ function ProductDetail() {
   if (!product) {
     return <p>Produkten hittades inte.</p>;
   }
+  //lägger till produkten i varukorgen och visar "Tillagd!"-meddelande i 1,2 sekunder
   function handleAddToCart() {
     addToCart(product);
 
@@ -96,6 +98,7 @@ function ProductDetail() {
               </button>
 
               <button
+                type="button"
                 className="detail-btn detail-btn-secondary"
                 onClick={() => toggleFavorite(product)}
               >

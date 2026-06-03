@@ -5,10 +5,13 @@
 }
 
 .product-card {
+  height: 100%;
   background-color: var(--color-card);
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 6px 18px rgba(17, 24, 39, 0.12);
+  display: flex;
+  flex-direction: column;
 }
 
 .product-card__image {
@@ -20,6 +23,9 @@
 
 .product-card__content {
   padding: 14px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .product-card__name {
@@ -45,6 +51,7 @@
 }
 
 .product-card__btns {
+  margin-top: auto;
   display: flex;
   gap: 10px;
 }

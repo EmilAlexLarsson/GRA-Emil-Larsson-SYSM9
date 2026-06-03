@@ -1,15 +1,43 @@
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 import OrderSummary from "../components/cart/OrderSummary";
 import ConfirmationItem from "../components/confirmation/confirmationItem";
+import api from "../api";
 import "../styles/pages/ConfirmationPage.css";
 
 function ConfirmationPage() {
-  //hämtar ordern från localstorage (som sparades i CheckoutPage)
-  const savedOrder = localStorage.getItem("latestOrder");
-  //om order finns, parsa den, annars sätt order till null
-  const order = savedOrder ? JSON.parse(savedOrder) : null;
-  //om ingen order hittas, visa meddelande
-  if (!order) {
+  // Hämtar orderId från URL:en
+  // Exempel: /confirmation/123abc
+  const { orderId } = useParams();
+
+  // State för ordern som hämtas från backend
+  const [order, setOrder] = useState(null);
+
+  // State för loading och error
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+
+  // Hämtar ordern från backend när sidan laddas
+  useEffect(() => {
+    async function loadOrder() {
+      try {
+        const data = await api.getOrderById(orderId);
+        setOrder(data);
+      } catch (error) {
+        setError("Kunde inte hämta ordern.");
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    loadOrder();
+  }, [orderId]);
+
+  if (loading) {
+    return <p>Laddar order...</p>;
+  }
+
+  if (error || !order) {
     return (
       <section className="confirmation-page">
         <div className="confirmation-card">

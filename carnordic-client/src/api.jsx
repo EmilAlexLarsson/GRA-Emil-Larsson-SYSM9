@@ -153,6 +153,11 @@ export async function createOrder(order) {
     body: JSON.stringify(order),
   });
 }
+export async function getOrderById(id) {
+  return request(`/orders/${id}`, {
+    method: "GET",
+  });
+}
 
 // FAVORITES
 export async function getFavorites() {
@@ -181,6 +186,7 @@ export default {
   getProducts,
   getProductById,
   createOrder,
+  getOrderById,
   getFavorites,
   addFavorite,
   removeFavorite,

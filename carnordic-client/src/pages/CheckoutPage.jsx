@@ -106,12 +106,10 @@ function CheckoutPage() {
     try {
       //skickar ordern via api.js
       const savedOrder = await api.createOrder(order);
-      //sparar senaste ordern i localStorage så att den kan visas på bekräftelsesidan
-      localStorage.setItem("latestOrder", JSON.stringify(savedOrder));
-      //tömmer
+
       clearCart();
-      //skicka vidare användaren
-      navigate("/confirmation");
+
+      navigate(`/confirmation/${savedOrder._id}`);
     } catch (error) {
       setError("Något gick fel när ordern skapades.");
     }

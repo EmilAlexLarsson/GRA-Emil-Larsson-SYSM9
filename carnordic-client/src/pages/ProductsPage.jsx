@@ -14,6 +14,8 @@ function ProductsPage() {
   useEffect(() => {
     async function loadProducts() {
       try {
+        setLoading(true);
+        setError("");
         const data = await api.getProducts();
         setProducts(data);
       } catch (error) {
@@ -33,11 +35,23 @@ function ProductsPage() {
   ];
 
   if (loading) {
-    return <p>Laddar produkter...</p>;
+    return (
+      <section className="products-page">
+        <div className="products-page__container">
+          <p>Laddar produkter...</p>
+        </div>
+      </section>
+    );
   }
 
   if (error) {
-    return <p>Något gick fel när produkterna hämtades.</p>;
+    return (
+      <section className="products-page">
+        <div className="products-page__container">
+          <p>{error}</p>
+        </div>
+      </section>
+    );
   }
   //filtrerar produkterna baserat på sökord och vald kategori
   const filteredProducts = products.filter((product) => {

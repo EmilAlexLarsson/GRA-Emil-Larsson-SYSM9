@@ -12,6 +12,8 @@ function HomePage() {
   useEffect(() => {
     async function loadProducts() {
       try {
+        setLoading(true);
+        setError("");
         const data = await api.getProducts();
         setProducts(data);
       } catch (error) {

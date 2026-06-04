@@ -18,6 +18,8 @@ function ProductDetail() {
   useEffect(() => {
     async function loadProduct() {
       try {
+        setLoading(true);
+        setError("");
         const data = await api.getProductById(productId);
         setProduct(data);
       } catch (error) {
@@ -31,13 +33,33 @@ function ProductDetail() {
   }, [productId]);
 
   if (loading) {
-    return <p>Laddar produkt...</p>;
+    return (
+      <section className="product-detail-page">
+        <div className="product-detail-container">
+          <p>Laddar produkt...</p>
+        </div>
+      </section>
+    );
   }
+
   if (error) {
-    return <p>Något gick fel när produkten hämtades.</p>;
+    return (
+      <section className="product-detail-page">
+        <div className="product-detail-container">
+          <p>{error}</p>
+        </div>
+      </section>
+    );
   }
+
   if (!product) {
-    return <p>Produkten hittades inte.</p>;
+    return (
+      <section className="product-detail-page">
+        <div className="product-detail-container">
+          <p>Produkten hittades inte.</p>
+        </div>
+      </section>
+    );
   }
   //lägger till produkten i varukorgen och visar "Tillagd!"-meddelande i 1,2 sekunder
   function handleAddToCart() {

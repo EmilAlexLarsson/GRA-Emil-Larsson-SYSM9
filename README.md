@@ -206,24 +206,6 @@ Innehåller backend-delen av projektet.
 
 ---
 
-## Viktigt att tänka på
-
-Frontend använder backend på:
-
-```txt
-http://localhost:3000
-```
-
-Backend tillåter frontend från:
-
-```txt
-http://localhost:5173
-```
-
-Både frontend och backend måste vara igång samtidigt för att applikationen ska fungera korrekt.
-
----
-
 ## Skapad av
 
 Emil Larsson

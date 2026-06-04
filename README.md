@@ -7,6 +7,14 @@ Projektet består av en frontend byggd med React och en backend byggd med Node.j
 
 ---
 
+## Figma-design
+
+Designen för projektet finns i Figma:
+
+[Figma – Carnordic Technology](https://www.figma.com/design/qBO890EkT1CAPHOmGYzl9j/GR%C3%84-Emil-Larsson-SYSM9?node-id=0-1&t=jaSpvt5ZuiuHw38l-1)
+
+---
+
 ## Tekniker
 
 ### Frontend

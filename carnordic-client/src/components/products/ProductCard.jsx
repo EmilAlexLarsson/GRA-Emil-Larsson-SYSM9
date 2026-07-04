@@ -1,33 +1,59 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useCart } from "../../contexts/CartContext";
 import { useFavorites } from "../../contexts/FavoritesContext";
 import "../../styles/components/ProductCard.css";
 
 function ProductCard({ product }) {
+  const navigate = useNavigate();
+
   const { addToCart } = useCart();
   const { toggleFavorite, isFavorite } = useFavorites();
   const [added, setAdded] = useState(false);
 
   const favorite = isFavorite(product._id);
 
-  function handleAddToCart() {
+  function handleCardClick() {
+    navigate(`/products/${product._id}`);
+  }
+
+  function handleAddToCart(e) {
+    // Stoppar klicket från att fortsätta till product-card
+    e.stopPropagation();
+
     addToCart(product);
+
     setAdded(true);
+
     setTimeout(() => {
       setAdded(false);
     }, 1200);
   }
 
+  function handleToggleFavorite(e) {
+    // Stoppar klicket från att fortsätta till product-card
+    e.stopPropagation();
+
+    toggleFavorite(product);
+  }
+
   return (
-    <article className="product-card">
-      <Link to={`/products/${product._id}`}>
-        <img
-          className="product-card__image"
-          src={product.image}
-          alt={product.name}
-        />
-      </Link>
+    <article
+      className="product-card"
+      onClick={handleCardClick}
+      role="link"
+      tabIndex={0}
+      onKeyDown={(e) => {
+        if (e.key === "Enter") {
+          handleCardClick();
+        }
+      }}
+    >
+      <img
+        className="product-card__image"
+        src={product.image}
+        alt={product.name}
+      />
 
       <div className="product-card__content">
         <h3 className="product-card__name">{product.name}</h3>
@@ -51,7 +77,7 @@ function ProductCard({ product }) {
             aria-label={
               favorite ? "Ta bort från favoriter" : "Lägg till favorit"
             }
-            onClick={() => toggleFavorite(product)}
+            onClick={handleToggleFavorite}
           >
             <img
               src={

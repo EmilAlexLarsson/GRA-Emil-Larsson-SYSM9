@@ -12,6 +12,10 @@
   box-shadow: 0 6px 18px rgba(17, 24, 39, 0.12);
   display: flex;
   flex-direction: column;
+  cursor: pointer;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
 }
 
 .product-card__image {
@@ -70,6 +74,7 @@
   align-items: center;
   justify-content: center;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .btn-primary {
@@ -100,6 +105,18 @@
 .btn-added {
   background-color: #1f7a4d;
   color: var(--color-white-text);
+}
+.product-card:hover {
+  transform: translateY(-2px);
+}
+
+.product-card:focus {
+  outline: none;
+}
+
+.product-card:focus-visible {
+  outline: 2px solid var(--color-blue);
+  outline-offset: 3px;
 }
 
 @media (max-width: 768px) {
